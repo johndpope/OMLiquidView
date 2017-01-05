@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'OMLiquidView_Example' do
+  pod 'OMLiquidView', :path => '../'
+
+  target 'OMLiquidView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
