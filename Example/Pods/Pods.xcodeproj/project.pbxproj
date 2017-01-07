@@ -1,0 +1,723 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FFFE6D679C727685B6E2F859BF84B6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		1A3889031E1E735E006AFE77 /* OMLiquidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3889021E1E735E006AFE77 /* OMLiquidView.swift */; };
+		1A3889051E1E745B006AFE77 /* WaveNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3889041E1E745B006AFE77 /* WaveNodeGenerator.swift */; };
+		2D045807A21A1292DCF3B5C432FFD439 /* Pods-OMLiquidView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75309ECCFD357C7F89E126F7DF79EEDF /* Pods-OMLiquidView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE6AFB40D902D5BF1675AD4B8EC923B /* Pods-OMLiquidView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE14ACB1CD510071159E95F6AE59B2 /* Pods-OMLiquidView_Tests-dummy.m */; };
+		6423547D8C1C8BC586F9137AC958DB0A /* OMLiquidView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DC6A7CF44B33A5F3ADA9BB289A5EE9D8 /* OMLiquidView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BADDA1299FE973FE915E42A128468E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		DE650E5B3A64D82E110659EC0C500E2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		E4F879BE5EBB24EB5DB883A6C0062AA8 /* OMLiquidView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC1481EA84C6C1424B764AE4B5070E3 /* OMLiquidView-dummy.m */; };
+		E53A4612FB2CB1FEA26F8F425CE9732A /* Pods-OMLiquidView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB22109A4D4B5E82031742AFAE48AF9 /* Pods-OMLiquidView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC044332BEDF926F4FBF98018E720C85 /* Pods-OMLiquidView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DCD748269AA216AF4D221FF8AEA0A1 /* Pods-OMLiquidView_Example-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7CB91B7DC88BAE7353D695727B69905 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D084FBAC20BD6B847479FC1997978B5;
+			remoteInfo = OMLiquidView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00EE14ACB1CD510071159E95F6AE59B2 /* Pods-OMLiquidView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OMLiquidView_Tests-dummy.m"; sourceTree = "<group>"; };
+		03EDB4C691564158BC1DC52051A363B6 /* Pods_OMLiquidView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMLiquidView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14279FE88D89B80B013B26D55A2DE586 /* Pods-OMLiquidView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OMLiquidView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		15A1CE06772B43B7C2D370F8F729F715 /* Pods-OMLiquidView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OMLiquidView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		1A3889021E1E735E006AFE77 /* OMLiquidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMLiquidView.swift; sourceTree = "<group>"; };
+		1A3889041E1E745B006AFE77 /* WaveNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveNodeGenerator.swift; sourceTree = "<group>"; };
+		2476491420E98B277906CB7B0DA20ACA /* Pods-OMLiquidView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OMLiquidView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4240C3C02891C38873B74D007A6CA5F5 /* OMLiquidView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OMLiquidView-prefix.pch"; sourceTree = "<group>"; };
+		56DCD748269AA216AF4D221FF8AEA0A1 /* Pods-OMLiquidView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OMLiquidView_Example-dummy.m"; sourceTree = "<group>"; };
+		75309ECCFD357C7F89E126F7DF79EEDF /* Pods-OMLiquidView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OMLiquidView_Example-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9ABA63B0F5AEF71949CDDE15DA5C511A /* Pods-OMLiquidView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OMLiquidView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A30CCDF378B0C29863AB5BE96115E688 /* Pods-OMLiquidView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OMLiquidView_Tests-resources.sh"; sourceTree = "<group>"; };
+		AAAE968B3E08DA95179BD9FB9722D63E /* OMLiquidView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OMLiquidView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B08E9EF6D2DA6D71D36331EBEC998870 /* Pods-OMLiquidView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OMLiquidView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C763202066B047CDF4AE8E4973C180FC /* OMLiquidView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OMLiquidView.xcconfig; sourceTree = "<group>"; };
+		C76FC6BDB1B3AC043D84DA8796C1F8E4 /* Pods-OMLiquidView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OMLiquidView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CC33B196EC4C572D28782671CB8D82D9 /* Pods-OMLiquidView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OMLiquidView_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		CEC1481EA84C6C1424B764AE4B5070E3 /* OMLiquidView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OMLiquidView-dummy.m"; sourceTree = "<group>"; };
+		D270459BC2E7764C13CADAB83F375D42 /* OMLiquidView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = OMLiquidView.modulemap; sourceTree = "<group>"; };
+		D35B2D2A8A91E08201CBF4541B798445 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4FD3309FE87BB3378D55B4100C15512 /* Pods-OMLiquidView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OMLiquidView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DC6A7CF44B33A5F3ADA9BB289A5EE9D8 /* OMLiquidView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OMLiquidView-umbrella.h"; sourceTree = "<group>"; };
+		E189A0FE65AC9E421A1A95C321044EC5 /* Pods-OMLiquidView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OMLiquidView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E20432B9F6ED2E37360F08206003FF7B /* Pods_OMLiquidView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMLiquidView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2588C40ED1DA0951BCD78AF5A64AC5F /* Pods-OMLiquidView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OMLiquidView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E784C0B6B034AFC216E64237D8CD1A42 /* Pods-OMLiquidView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-OMLiquidView_Example.modulemap"; sourceTree = "<group>"; };
+		EB2E0D40077918CD5440C60A36B4DCF2 /* Pods-OMLiquidView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-OMLiquidView_Tests.modulemap"; sourceTree = "<group>"; };
+		F1FD180D414F2463861A49DD561B742B /* Pods-OMLiquidView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OMLiquidView_Example-resources.sh"; sourceTree = "<group>"; };
+		F2634CB226E82D2ACA709047F33EF66C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB6C00E164FE2DCE0179771A7A8297AC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFB22109A4D4B5E82031742AFAE48AF9 /* Pods-OMLiquidView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OMLiquidView_Tests-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20C941F821179B8F626E041AEB7DDCFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BADDA1299FE973FE915E42A128468E33 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA94EE9DAD4004F1D7791CCE317E8C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FFFE6D679C727685B6E2F859BF84B6E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B6832A6167A334CA37F3104252CFCD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE650E5B3A64D82E110659EC0C500E2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A76EB99F368112AC6AD6600A724895F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2634CB226E82D2ACA709047F33EF66C /* Info.plist */,
+				D270459BC2E7764C13CADAB83F375D42 /* OMLiquidView.modulemap */,
+				C763202066B047CDF4AE8E4973C180FC /* OMLiquidView.xcconfig */,
+				CEC1481EA84C6C1424B764AE4B5070E3 /* OMLiquidView-dummy.m */,
+				4240C3C02891C38873B74D007A6CA5F5 /* OMLiquidView-prefix.pch */,
+				DC6A7CF44B33A5F3ADA9BB289A5EE9D8 /* OMLiquidView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/OMLiquidView";
+			sourceTree = "<group>";
+		};
+		11DA2A050AF00FA77EC53250399F158B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F1FA7FBFA9DCAF6A84B04C075F37350 /* Pods-OMLiquidView_Example */,
+				E7A02C49F5E33A413F6EDACD2DEA0750 /* Pods-OMLiquidView_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		324938008351D9265B959FEF16024B0E /* OMLiquidView */ = {
+			isa = PBXGroup;
+			children = (
+				BBD4F9374E11CD7A13F64A423AEBBCEE /* OMLiquidView */,
+				0A76EB99F368112AC6AD6600A724895F /* Support Files */,
+			);
+			name = OMLiquidView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		3A9299FB6A032B00BCAAD5FFA289A59B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1A3889021E1E735E006AFE77 /* OMLiquidView.swift */,
+				1A3889041E1E745B006AFE77 /* WaveNodeGenerator.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5143F3F282ACC6FE3DF12F2236BBE10E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAAE968B3E08DA95179BD9FB9722D63E /* OMLiquidView.framework */,
+				E20432B9F6ED2E37360F08206003FF7B /* Pods_OMLiquidView_Example.framework */,
+				03EDB4C691564158BC1DC52051A363B6 /* Pods_OMLiquidView_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63685F2163C7954E53C420FEDF391867 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				324938008351D9265B959FEF16024B0E /* OMLiquidView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				63685F2163C7954E53C420FEDF391867 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				5143F3F282ACC6FE3DF12F2236BBE10E /* Products */,
+				11DA2A050AF00FA77EC53250399F158B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9F1FA7FBFA9DCAF6A84B04C075F37350 /* Pods-OMLiquidView_Example */ = {
+			isa = PBXGroup;
+			children = (
+				FB6C00E164FE2DCE0179771A7A8297AC /* Info.plist */,
+				E784C0B6B034AFC216E64237D8CD1A42 /* Pods-OMLiquidView_Example.modulemap */,
+				E189A0FE65AC9E421A1A95C321044EC5 /* Pods-OMLiquidView_Example-acknowledgements.markdown */,
+				14279FE88D89B80B013B26D55A2DE586 /* Pods-OMLiquidView_Example-acknowledgements.plist */,
+				56DCD748269AA216AF4D221FF8AEA0A1 /* Pods-OMLiquidView_Example-dummy.m */,
+				15A1CE06772B43B7C2D370F8F729F715 /* Pods-OMLiquidView_Example-frameworks.sh */,
+				F1FD180D414F2463861A49DD561B742B /* Pods-OMLiquidView_Example-resources.sh */,
+				75309ECCFD357C7F89E126F7DF79EEDF /* Pods-OMLiquidView_Example-umbrella.h */,
+				D4FD3309FE87BB3378D55B4100C15512 /* Pods-OMLiquidView_Example.debug.xcconfig */,
+				C76FC6BDB1B3AC043D84DA8796C1F8E4 /* Pods-OMLiquidView_Example.release.xcconfig */,
+			);
+			name = "Pods-OMLiquidView_Example";
+			path = "Target Support Files/Pods-OMLiquidView_Example";
+			sourceTree = "<group>";
+		};
+		BBD4F9374E11CD7A13F64A423AEBBCEE /* OMLiquidView */ = {
+			isa = PBXGroup;
+			children = (
+				3A9299FB6A032B00BCAAD5FFA289A59B /* Classes */,
+			);
+			path = OMLiquidView;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7A02C49F5E33A413F6EDACD2DEA0750 /* Pods-OMLiquidView_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D35B2D2A8A91E08201CBF4541B798445 /* Info.plist */,
+				EB2E0D40077918CD5440C60A36B4DCF2 /* Pods-OMLiquidView_Tests.modulemap */,
+				E2588C40ED1DA0951BCD78AF5A64AC5F /* Pods-OMLiquidView_Tests-acknowledgements.markdown */,
+				2476491420E98B277906CB7B0DA20ACA /* Pods-OMLiquidView_Tests-acknowledgements.plist */,
+				00EE14ACB1CD510071159E95F6AE59B2 /* Pods-OMLiquidView_Tests-dummy.m */,
+				CC33B196EC4C572D28782671CB8D82D9 /* Pods-OMLiquidView_Tests-frameworks.sh */,
+				A30CCDF378B0C29863AB5BE96115E688 /* Pods-OMLiquidView_Tests-resources.sh */,
+				FFB22109A4D4B5E82031742AFAE48AF9 /* Pods-OMLiquidView_Tests-umbrella.h */,
+				B08E9EF6D2DA6D71D36331EBEC998870 /* Pods-OMLiquidView_Tests.debug.xcconfig */,
+				9ABA63B0F5AEF71949CDDE15DA5C511A /* Pods-OMLiquidView_Tests.release.xcconfig */,
+			);
+			name = "Pods-OMLiquidView_Tests";
+			path = "Target Support Files/Pods-OMLiquidView_Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		72B40A6509B1916B2D41AE425D41EA08 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D045807A21A1292DCF3B5C432FFD439 /* Pods-OMLiquidView_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCFFEA45EED0F1710A3207A90B849018 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E53A4612FB2CB1FEA26F8F425CE9732A /* Pods-OMLiquidView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E02C5133D17ADD42108A4B3F06953B23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6423547D8C1C8BC586F9137AC958DB0A /* OMLiquidView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6E1F984BDEB1C1497AEEDB31C583E76C /* Pods-OMLiquidView_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF212D5E934A138728344609E2B9E39C /* Build configuration list for PBXNativeTarget "Pods-OMLiquidView_Example" */;
+			buildPhases = (
+				70376A454162BC6F809DA077BDE8BAC1 /* Sources */,
+				8B6832A6167A334CA37F3104252CFCD3 /* Frameworks */,
+				72B40A6509B1916B2D41AE425D41EA08 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2333B4301F9B0439E9DC28CD8693EA2F /* PBXTargetDependency */,
+			);
+			name = "Pods-OMLiquidView_Example";
+			productName = "Pods-OMLiquidView_Example";
+			productReference = E20432B9F6ED2E37360F08206003FF7B /* Pods_OMLiquidView_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8D084FBAC20BD6B847479FC1997978B5 /* OMLiquidView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D86419A905D65436B844503AD37EA96 /* Build configuration list for PBXNativeTarget "OMLiquidView" */;
+			buildPhases = (
+				497883FE15841D319737C7FDEE5F40C4 /* Sources */,
+				20C941F821179B8F626E041AEB7DDCFF /* Frameworks */,
+				E02C5133D17ADD42108A4B3F06953B23 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OMLiquidView;
+			productName = OMLiquidView;
+			productReference = AAAE968B3E08DA95179BD9FB9722D63E /* OMLiquidView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A15F3BE348BA0CBA6B6F76C2CE5C4FAC /* Pods-OMLiquidView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3AD52304509DC3B90FC37E33DDE52D5 /* Build configuration list for PBXNativeTarget "Pods-OMLiquidView_Tests" */;
+			buildPhases = (
+				3AB98E8FCFBCFA175CD45E497FED6EAA /* Sources */,
+				4AA94EE9DAD4004F1D7791CCE317E8C0 /* Frameworks */,
+				DCFFEA45EED0F1710A3207A90B849018 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-OMLiquidView_Tests";
+			productName = "Pods-OMLiquidView_Tests";
+			productReference = 03EDB4C691564158BC1DC52051A363B6 /* Pods_OMLiquidView_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					6E1F984BDEB1C1497AEEDB31C583E76C = {
+						LastSwiftMigration = 0810;
+					};
+					8D084FBAC20BD6B847479FC1997978B5 = {
+						LastSwiftMigration = 0810;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 5143F3F282ACC6FE3DF12F2236BBE10E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D084FBAC20BD6B847479FC1997978B5 /* OMLiquidView */,
+				6E1F984BDEB1C1497AEEDB31C583E76C /* Pods-OMLiquidView_Example */,
+				A15F3BE348BA0CBA6B6F76C2CE5C4FAC /* Pods-OMLiquidView_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AB98E8FCFBCFA175CD45E497FED6EAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BE6AFB40D902D5BF1675AD4B8EC923B /* Pods-OMLiquidView_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497883FE15841D319737C7FDEE5F40C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A3889051E1E745B006AFE77 /* WaveNodeGenerator.swift in Sources */,
+				1A3889031E1E735E006AFE77 /* OMLiquidView.swift in Sources */,
+				E4F879BE5EBB24EB5DB883A6C0062AA8 /* OMLiquidView-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70376A454162BC6F809DA077BDE8BAC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC044332BEDF926F4FBF98018E720C85 /* Pods-OMLiquidView_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2333B4301F9B0439E9DC28CD8693EA2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OMLiquidView;
+			target = 8D084FBAC20BD6B847479FC1997978B5 /* OMLiquidView */;
+			targetProxy = F7CB91B7DC88BAE7353D695727B69905 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10C4BCE87D893CAE877FAFB0BC61F947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4FD3309FE87BB3378D55B4100C15512 /* Pods-OMLiquidView_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-OMLiquidView_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OMLiquidView_Example/Pods-OMLiquidView_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OMLiquidView_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2BA561681CC55890D03320FE314DB19A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABA63B0F5AEF71949CDDE15DA5C511A /* Pods-OMLiquidView_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-OMLiquidView_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OMLiquidView_Tests/Pods-OMLiquidView_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OMLiquidView_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		45F64173EAD40E5CF83A40C75F8B89E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C763202066B047CDF4AE8E4973C180FC /* OMLiquidView.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OMLiquidView/OMLiquidView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OMLiquidView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/OMLiquidView/OMLiquidView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = OMLiquidView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7583EF4016E69EBDB7982A31DDEE9E51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C76FC6BDB1B3AC043D84DA8796C1F8E4 /* Pods-OMLiquidView_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-OMLiquidView_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OMLiquidView_Example/Pods-OMLiquidView_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OMLiquidView_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E018EF54C07166C6C6888DC56DAF8F8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C763202066B047CDF4AE8E4973C180FC /* OMLiquidView.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OMLiquidView/OMLiquidView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OMLiquidView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/OMLiquidView/OMLiquidView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = OMLiquidView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E2EAC41C2C8AA8BBCFA6D2DF7A74525C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B08E9EF6D2DA6D71D36331EBEC998870 /* Pods-OMLiquidView_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-OMLiquidView_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OMLiquidView_Tests/Pods-OMLiquidView_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OMLiquidView_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D86419A905D65436B844503AD37EA96 /* Build configuration list for PBXNativeTarget "OMLiquidView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E018EF54C07166C6C6888DC56DAF8F8D /* Debug */,
+				45F64173EAD40E5CF83A40C75F8B89E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
+				E72E7977875C2D251FC62736BBDDC389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF212D5E934A138728344609E2B9E39C /* Build configuration list for PBXNativeTarget "Pods-OMLiquidView_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10C4BCE87D893CAE877FAFB0BC61F947 /* Debug */,
+				7583EF4016E69EBDB7982A31DDEE9E51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3AD52304509DC3B90FC37E33DDE52D5 /* Build configuration list for PBXNativeTarget "Pods-OMLiquidView_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2EAC41C2C8AA8BBCFA6D2DF7A74525C /* Debug */,
+				2BA561681CC55890D03320FE314DB19A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

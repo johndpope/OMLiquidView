@@ -1,0 +1,6 @@
+framework module Pods_OMLiquidView_Tests {
+  umbrella header "Pods-OMLiquidView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module OMLiquidView {
+  umbrella header "OMLiquidView-umbrella.h"
+
+  export *
+  module * { export * }
+}

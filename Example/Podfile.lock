@@ -1,0 +1,16 @@
+PODS:
+  - OMLiquidView (0.1.0)
+
+DEPENDENCIES:
+  - OMLiquidView (from `../`)
+
+EXTERNAL SOURCES:
+  OMLiquidView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OMLiquidView: 34f1cadcce653878eb4d1400e371c54106baff17
+
+PODFILE CHECKSUM: 9a4c5f6f834334461c7e5e2201d84c8111c309fd
+
+COCOAPODS: 1.1.1
