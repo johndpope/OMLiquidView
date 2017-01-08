@@ -8,78 +8,147 @@
 
 import Foundation
 
-public enum WaveDirection: Int {
-    case up = 0
-    case down
-    
-    func inverse() -> WaveDirection {
-        if case .up = self { return .down }
-        if case .down = self { return .up }
-        return .up
-    }
-}
+
 
 public struct WaveNode {
+    
+    public enum PeakAndNadir {
+        case equal(value: CGFloat)
+        case notEqual(peak: CGFloat, nadir: CGFloat)
+    }
+    
+    public enum PNUpdateStyle {
+        case const
+        case random(min: Int)
+    }
+    
+    public enum WaveDirection: Int {
+        case up = 0
+        case down
+        
+        static func random() -> WaveDirection {
+            return WaveDirection(rawValue: Int(arc4random() % 1))!
+        }
+        
+        func inverse() -> WaveDirection {
+            if case .up = self { return .down }
+            if case .down = self { return .up }
+            return .up
+        }
+    }
+    
+    public struct Configuration: Options {
+        
+        public var peakAndNadir: PeakAndNadir = .equal(value: 15)
+        public var updateStyle: PNUpdateStyle = .random(min: 70)
+        public var nodeSegment: CGFloat = 360
+        public var verticalAnimationDuration: TimeInterval = 6
+        public var horizontalAnimationDuration: TimeInterval = 3
+        public var initialDirction: WaveDirection = WaveDirection.random()
+    
+        public typealias OptionStruct = Configuration
+        public init() {}
+    }
+    
     let peak: CGFloat
     let nadir: CGFloat
-    var nodeSegment: CGFloat = 0
+    let nodeSegment: CGFloat
+    var direction: WaveDirection
     var currentAltitude: CGFloat = 0 {
         didSet {
             if currentAltitude >= _currentPeak {
                 direction = .down
             }
             
-            if currentAltitude <= -nadir {
+            if currentAltitude <= -_currentNadir {
                 direction = .up
             }
         }
     }
-    var altitudeRatio: CGFloat {
-        return currentAltitude / _currentPeak
-    }
-    var verticalTimeinterval: TimeInterval = 6
-    var direction: WaveDirection = WaveDirection(rawValue: Int(arc4random() % 1))!
-    
     var currentTranslation: CGFloat = 0
-    public var horizontalTimeinterval: TimeInterval = 2
+    var altitudeRatio: CGFloat {
+        return currentAltitude / _currentRefDistance
+    }
     
+    fileprivate let _updateStyle: PNUpdateStyle
+    fileprivate let _verticalTimeinterval: TimeInterval
+    fileprivate let _horizontalTimeinterval: TimeInterval
     fileprivate var _currentPeak: CGFloat = 0
     fileprivate var _currentNadir: CGFloat = 0
-    fileprivate var _verticalTPF: CGFloat {
-        let min1 = -0.2 * _currentPeak
-        let max1 = 0.2 * _currentPeak
+    fileprivate var _currentRefDistance: CGFloat {
+        var distance: CGFloat = 0
         
-        let min2 = -0.4 * _currentPeak
-        let max2 = 0.4 * _currentPeak
+        if currentAltitude > 0 {
+            distance = _currentPeak
+        }
+        
+        if currentAltitude < 0 {
+            distance = _currentNadir
+        }
+        
+        if currentAltitude == 0 {
+            switch direction {
+            case .up:
+                distance = _currentPeak
+            case .down:
+                distance = _currentNadir
+            }
+        }
+        
+        return distance
+    }
+    fileprivate var _verticalTPF: CGFloat {
+        var distance: CGFloat = _currentRefDistance
+        let min1 = -0.2 * distance
+        let max1 = 0.2 * distance
+        
+        let min2 = -0.4 * distance
+        let max2 = 0.4 * distance
         
         if currentAltitude > min1 && currentAltitude < max1 {
-            return _currentPeak / (20 * CGFloat(self.verticalTimeinterval))
+            return distance / (20 * CGFloat(self._verticalTimeinterval))
         }
         
         if currentAltitude > min2 && currentAltitude < max2 {
-            return _currentPeak / (40 * CGFloat(self.verticalTimeinterval))
+            return distance / (40 * CGFloat(self._verticalTimeinterval))
         }
         
-        return _currentPeak / (60 * CGFloat(self.verticalTimeinterval))
+        return distance / (60 * CGFloat(self._verticalTimeinterval))
     }
     
     fileprivate lazy var _horizontalTPF: CGFloat = {
-       return self.nodeSegment / (60 * CGFloat(self.horizontalTimeinterval))
+        return self.nodeSegment / (60 * CGFloat(self._horizontalTimeinterval))
     }()
-
-    public init(peak: CGFloat, nadir: CGFloat, nodeSegment: CGFloat, direction: WaveDirection) {
-        self.peak = peak
-        self.nadir = nadir
-        self.nodeSegment = nodeSegment
-        self.direction = direction
+    
+    public init(configuration: Configuration = Configuration()) {
+        switch configuration.peakAndNadir {
+        case .equal(let value):
+            peak = value
+            nadir = value
+        case .notEqual(let p, let n):
+            peak = p
+            nadir = n
+        }
+        _updateStyle = configuration.updateStyle
+        nodeSegment = configuration.nodeSegment
+        _verticalTimeinterval = configuration.verticalAnimationDuration
+        _horizontalTimeinterval = configuration.horizontalAnimationDuration
+        direction = configuration.initialDirction
+        
     }
     
     mutating func currentAltitude(with ratio: CGFloat) {
-        currentAltitude = ratio * _currentPeak
+        currentAltitude = ratio * _currentRefDistance
     }
     
     mutating func updatePeakAndNadir() {
-        let delta: CGFloat = 1
+        var delta: CGFloat = 1
+        switch _updateStyle {
+        case .random(let min):
+            delta = 1 - CGFloat(arc4random() % (100 - UInt32(min)) / 100)
+        case .const:
+            break
+        }
         _currentNadir = nadir * delta
         _currentPeak = peak * delta
     }
@@ -109,24 +178,34 @@ public struct WaveNode {
 }
 
 public class WaveNodeGenerator {
-    var maxNodeCount: Int
-    var currentNodeIndex: Int = 0
-    var nodeTimeInterval: TimeInterval
+
     private(set) var templateWaveNode: WaveNode
     private(set) var existingWaveNodes: [WaveNode] = []
     
+    fileprivate var maxNodeCount: Int
+    fileprivate var nodeTimeInterval: TimeInterval
     fileprivate var _timer: Timer!
+    fileprivate var _timerIsPaused: Bool = false
     
     init(waveNode: WaveNode, maxCount: Int) {
         self.templateWaveNode = waveNode
         self.maxNodeCount = maxCount
-        self.nodeTimeInterval = waveNode.horizontalTimeinterval
+        self.nodeTimeInterval = waveNode._horizontalTimeinterval
+        NotificationCenter.default.addObserver(self, selector: #selector(WaveNodeGenerator.willResignActive(notification:)), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WaveNodeGenerator.willEnterForeground(notification:)), name: .UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    @objc func willResignActive(notification: Notification) {
+        _timerIsPaused = true
+    }
+    
+    @objc func willEnterForeground(notification: Notification) {
+        _timerIsPaused = false
     }
     
     func initialNode() -> WaveNode {
         var node = templateWaveNode
         node.updatePeakAndNadir()
-        node.currentAltitude = 0
         return node
     }
     
@@ -146,15 +225,13 @@ public class WaveNodeGenerator {
     }
     
     @objc public func next(timer: Timer) {
+        guard !_timerIsPaused else { return }
+        
         existingWaveNodes.append(nextNode())
-        if existingWaveNodes.count != maxNodeCount {
-            existingWaveNodes = existingWaveNodes.filter { node in
-                return node.currentTranslation <= templateWaveNode.nodeSegment * CGFloat(maxNodeCount)
-            }
-            print(existingWaveNodes.count)
-        }else {
-            currentNodeIndex += 1
+        existingWaveNodes = existingWaveNodes.filter { node in
+            return node.currentTranslation <= templateWaveNode.nodeSegment * CGFloat(maxNodeCount)
         }
+        print(existingWaveNodes.count)
     }
     
     func updateNodesHorizontal() {

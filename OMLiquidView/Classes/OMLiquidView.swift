@@ -10,52 +10,104 @@ import UIKit
 
 public class OMLiquidView: UIView {
     
+    public enum LayerAppearance {
+        case bgColor(color: UIColor)
+        case gradientBGColor(colors: [AnyObject]?, locations: [NSNumber]?, startPoint: CGPoint, endPoint: CGPoint, type: String)
+        case custom(layer: CALayer)
+    }
+    
+    public enum ShadowAppearance {
+        case none
+        case shadow(opacity: Float, radius: CGFloat, offset: CGSize, color: CGColor)
+    }
+    
+    public struct Appearance: Options {
+        public var backLayer: OMLiquidView.LayerAppearance = .bgColor(color: .red)
+        public var shadow: ShadowAppearance = .none
+        public typealias OptionStruct = Appearance
+        public init() {}
+    }
+    
+    fileprivate var _appearance: OMLiquidView.Appearance
+    fileprivate var _timerIsPaused: Bool = false
+    
+    /// liquid path, update base on the wave nodes.
     fileprivate var _liquidPath: UIBezierPath!
-    fileprivate var _liquidLayer: CAShapeLayer = CAShapeLayer()
+    
+    /// assign CALayer instance to this property for custom usage.(layer bacground color or gradient...)
+    fileprivate var _liquidBackLayer: CALayer = CALayer()
+    
+    /// use as a mask for back layer⬆️
+    fileprivate var _liquidMaskLayer: CAShapeLayer = CAShapeLayer()
+    
+    /// just like the mask layer but used for shadow drawing.
+    fileprivate var _liquidShadowLayer: CAShapeLayer?
+    
+    /// template node, this node is used as template for the rest.
     fileprivate var _templateWaveNode: WaveNode
+    
+    /// node generator, add new nodes, remove old ones and update nodes' properties.
     fileprivate var _waveNodeGenerator: WaveNodeGenerator!
     
+    /// display link, update nodes' properties and liquid path.
     fileprivate var _animationTimer: CADisplayLink!
     
+    /// horizontal distance between two adjoining nodes
     fileprivate var _waveSegament: CGFloat
     
-    lazy var _refWidth: CGFloat = {
+    // properties to coordinate the layers
+    fileprivate lazy var _refWidth: CGFloat = {
         return self.frame.width + 2 * self._waveSegament
     }()
-    lazy var _refHeight: CGFloat = {
+    fileprivate lazy var _refHeight: CGFloat = {
         return self.frame.height - self._templateWaveNode.peak - self._templateWaveNode.nadir
     }()
-    lazy var _refX: CGFloat = {
+    fileprivate lazy var _refX: CGFloat = {
         return -self._waveSegament
     }()
-    lazy var _refY: CGFloat = {
+    fileprivate lazy var _refY: CGFloat = {
         return self._templateWaveNode.peak + self._templateWaveNode.nadir
     }()
     
-    lazy var _initialPoint: CGPoint = {
+    
+    /// start point for liquid path.(top right)
+    fileprivate lazy var _initialPoint: CGPoint = {
         return CGPoint(x: self._refX + self._refWidth, y: self._refY)
     }()
     
-    lazy var _brPoint: CGPoint = {
+    /// bottom right
+    fileprivate lazy var _brPoint: CGPoint = {
         return CGPoint(x: self._refX + self._refWidth, y: self._refY + self._refHeight)
     }()
     
-    lazy var _blPoint: CGPoint = {
+    /// bottom left
+    fileprivate lazy var _blPoint: CGPoint = {
         return CGPoint(x: self._refX, y: self._refY + self._refHeight)
     }()
     
-    lazy var _tlPoint: CGPoint = {
+    /// top left
+    fileprivate lazy var _tlPoint: CGPoint = {
         return CGPoint(x: self._refX, y: self._refY)
     }()
     
-    public var liquidColor: UIColor? = UIColor.clear
-    
-    public init(frame: CGRect, templateWaveNode: WaveNode) {
+    public init(frame: CGRect, templateWaveNode: WaveNode, appearance: Appearance = Appearance()) {
         _templateWaveNode = templateWaveNode
         _waveSegament = templateWaveNode.nodeSegment
+        self._appearance = appearance
         super.init(frame: frame)
         setupLiquidLayer()
         self.backgroundColor = UIColor.clear
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OMLiquidView.willResignActive(notification:)), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OMLiquidView.willEnterForeground(notification:)), name: .UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    func willResignActive(notification: Notification) {
+        _timerIsPaused = true
+    }
+    
+    func willEnterForeground(notification: Notification) {
+        _timerIsPaused = false
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -68,16 +120,49 @@ public class OMLiquidView: UIView {
     }
     
     private func setupWaveGenerator() {
-        let maxCount = Int(ceil(self.bounds.width / _templateWaveNode.nodeSegment)) + 1
+        let maxCount = Int(ceil(self.bounds.width / _templateWaveNode.nodeSegment)) + 2
         _waveNodeGenerator = WaveNodeGenerator(waveNode: _templateWaveNode, maxCount: maxCount)
     }
     
     private func setupLiquidLayer() {
         setupLiquidPath()
         setupWaveGenerator()
-        _liquidLayer.path = _liquidPath.cgPath
-        _liquidLayer.fillColor = self.liquidColor?.cgColor
-        self.layer.addSublayer(_liquidLayer)
+        
+        _liquidBackLayer.frame = self.bounds
+        switch _appearance.backLayer {
+        case .bgColor(let color):
+            _liquidBackLayer.backgroundColor = color.cgColor
+        case .gradientBGColor(let colors, let locations, let startPoint, let endPoint, let type):
+            let gradientLayer = CAGradientLayer(layer: _liquidBackLayer)
+            gradientLayer.colors = colors
+            gradientLayer.locations = locations
+            gradientLayer.startPoint = startPoint
+            gradientLayer.endPoint = endPoint
+            gradientLayer.type = type
+            _liquidBackLayer = gradientLayer
+        case .custom(let layer):
+            _liquidBackLayer = layer
+        }
+        _liquidMaskLayer.path = _liquidPath.cgPath
+        _liquidBackLayer.mask = _liquidMaskLayer
+        
+        switch _appearance.shadow {
+        case .shadow(let opacity, let radius, let offset, let color):
+            _liquidShadowLayer = CAShapeLayer()
+            guard let layer = _liquidShadowLayer else {
+                fatalError("liquid shadow layer initialization failed")
+            }
+            layer.path = _liquidPath.cgPath
+            layer.shadowOpacity = opacity
+            layer.shadowRadius = radius
+            layer.shadowOffset = offset
+            layer.shadowColor = color
+            self.layer.addSublayer(layer)
+        default:
+            break
+        }
+        
+        self.layer.addSublayer(_liquidBackLayer)
     }
     
     public override func draw(_ rect: CGRect) {
@@ -88,9 +173,10 @@ public class OMLiquidView: UIView {
     }
     
     func updateLiquidLayer(timer: CADisplayLink) {
+        guard !_timerIsPaused else { return }
         updateLiquidPath()
-        _liquidLayer.path = _liquidPath.cgPath
-        _liquidLayer.fillColor = self.liquidColor?.cgColor
+        _liquidMaskLayer.path = _liquidPath.cgPath
+        _liquidShadowLayer?.path = _liquidPath.cgPath
     }
     
     private func updateLiquidPath() {
@@ -111,7 +197,12 @@ public class OMLiquidView: UIView {
             (0..<allWaveNodes.count).map { index in
                 let currentIndex = allWaveNodes.count - 1 - index
                 let currentNode = allWaveNodes[currentIndex]
-                let endPoint = CGPoint(x: currentNode.currentTranslation + _refX, y: _refY + currentNode.currentAltitude)
+                var endPoint: CGPoint = CGPoint.zero
+                if currentIndex == 0 {
+                    endPoint = CGPoint(x: currentNode.currentTranslation + _refX + nodeSegment / 2, y: _refY)
+                }else {
+                    endPoint = CGPoint(x: currentNode.currentTranslation + _refX, y: _refY + currentNode.currentAltitude)
+                }
                 _liquidPath.om_addCurve(to: endPoint)
             }
             _liquidPath.addLine(to: _initialPoint)
@@ -121,11 +212,4 @@ public class OMLiquidView: UIView {
     
 }
 
-extension UIBezierPath {
-    func om_addCurve(to end: CGPoint) {
-        let currentPoint = self.currentPoint
-        let cp1 = CGPoint(x: (end.x + currentPoint.x) / 2, y: currentPoint.y)
-        let cp2 = CGPoint(x: cp1.x, y: end.y)
-        self.addCurve(to: end, controlPoint1: cp1, controlPoint2: cp2)
-    }
-}
+
