@@ -194,7 +194,7 @@ public class OMLiquidView: UIView {
             _liquidPath.addLine(to: _brPoint)
             _liquidPath.addLine(to: _blPoint)
             _liquidPath.addLine(to: _tlPoint)
-            (0..<allWaveNodes.count).map { index in
+            (0..<allWaveNodes.count).forEach { index in
                 let currentIndex = allWaveNodes.count - 1 - index
                 let currentNode = allWaveNodes[currentIndex]
                 var endPoint: CGPoint = CGPoint.zero

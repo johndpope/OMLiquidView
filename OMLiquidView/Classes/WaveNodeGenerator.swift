@@ -98,7 +98,7 @@ public struct WaveNode {
         return distance
     }
     fileprivate var _verticalTPF: CGFloat {
-        var distance: CGFloat = _currentRefDistance
+        let distance: CGFloat = _currentRefDistance
         let min1 = -0.2 * distance
         let max1 = 0.2 * distance
         
