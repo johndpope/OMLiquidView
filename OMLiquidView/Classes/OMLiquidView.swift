@@ -8,6 +8,9 @@
 
 import UIKit
 
+fileprivate let shadowPathAdjust: CGFloat = 4
+
+
 public class OMLiquidView: UIView {
     
     public enum LayerAppearance {
@@ -34,6 +37,8 @@ public class OMLiquidView: UIView {
     /// liquid path, update base on the wave nodes.
     fileprivate var _liquidPath: UIBezierPath!
     
+    fileprivate var _shadowPath: UIBezierPath?
+    
     /// assign CALayer instance to this property for custom usage.(layer bacground color or gradient...)
     fileprivate var _liquidBackLayer: CALayer = CALayer()
     
@@ -57,7 +62,7 @@ public class OMLiquidView: UIView {
     
     // properties to coordinate the layers
     fileprivate lazy var _refWidth: CGFloat = {
-        return self.frame.width + 2 * self._waveSegament
+        return self.frame.width + self._waveSegament * 2
     }()
     fileprivate lazy var _refHeight: CGFloat = {
         return self.frame.height - self._templateWaveNode.peak - self._templateWaveNode.nadir
@@ -115,13 +120,14 @@ public class OMLiquidView: UIView {
     }
     
     private func setupLiquidPath() {
-        
         _liquidPath = UIBezierPath(rect: CGRect(x: _refX, y: _refY, width: _refWidth, height: _refHeight))
+        if case .shadow = _appearance.shadow {
+            _shadowPath = UIBezierPath(rect: CGRect(x: _refX, y: _refX, width: _refWidth, height: 2))
+        }
     }
     
     private func setupWaveGenerator() {
-        let maxCount = Int(ceil(self.bounds.width / _templateWaveNode.nodeSegment)) + 2
-        _waveNodeGenerator = WaveNodeGenerator(waveNode: _templateWaveNode, maxCount: maxCount)
+        _waveNodeGenerator = WaveNodeGenerator(waveNode: _templateWaveNode, threshold: _refWidth * 1.2)
     }
     
     private func setupLiquidLayer() {
@@ -133,15 +139,17 @@ public class OMLiquidView: UIView {
         case .bgColor(let color):
             _liquidBackLayer.backgroundColor = color.cgColor
         case .gradientBGColor(let colors, let locations, let startPoint, let endPoint, let type):
-            let gradientLayer = CAGradientLayer(layer: _liquidBackLayer)
+            let gradientLayer = CAGradientLayer()
             gradientLayer.colors = colors
             gradientLayer.locations = locations
             gradientLayer.startPoint = startPoint
             gradientLayer.endPoint = endPoint
             gradientLayer.type = type
-            _liquidBackLayer = gradientLayer
+            gradientLayer.frame = _liquidBackLayer.bounds
+            _liquidBackLayer.addSublayer(gradientLayer)
         case .custom(let layer):
-            _liquidBackLayer = layer
+            layer.frame = _liquidBackLayer.bounds
+            _liquidBackLayer.addSublayer(layer)
         }
         _liquidMaskLayer.path = _liquidPath.cgPath
         _liquidBackLayer.mask = _liquidMaskLayer
@@ -152,10 +160,10 @@ public class OMLiquidView: UIView {
             guard let layer = _liquidShadowLayer else {
                 fatalError("liquid shadow layer initialization failed")
             }
-            layer.path = _liquidPath.cgPath
+            layer.path = _shadowPath?.cgPath
             layer.shadowOpacity = opacity
             layer.shadowRadius = radius
-            layer.shadowOffset = offset
+            layer.shadowOffset = CGSize(width: offset.width, height: offset.height - shadowPathAdjust)
             layer.shadowColor = color
             self.layer.addSublayer(layer)
         default:
@@ -176,7 +184,7 @@ public class OMLiquidView: UIView {
         guard !_timerIsPaused else { return }
         updateLiquidPath()
         _liquidMaskLayer.path = _liquidPath.cgPath
-        _liquidShadowLayer?.path = _liquidPath.cgPath
+        _liquidShadowLayer?.path = _shadowPath?.cgPath
     }
     
     private func updateLiquidPath() {
@@ -194,6 +202,11 @@ public class OMLiquidView: UIView {
             _liquidPath.addLine(to: _brPoint)
             _liquidPath.addLine(to: _blPoint)
             _liquidPath.addLine(to: _tlPoint)
+            
+            _shadowPath = UIBezierPath()
+        
+            _shadowPath?.move(to: _tlPoint)
+
             (0..<allWaveNodes.count).forEach { index in
                 let currentIndex = allWaveNodes.count - 1 - index
                 let currentNode = allWaveNodes[currentIndex]
@@ -203,8 +216,15 @@ public class OMLiquidView: UIView {
                 }else {
                     endPoint = CGPoint(x: currentNode.currentTranslation + _refX, y: _refY + currentNode.currentAltitude)
                 }
+                _shadowPath?.om_addCurve(to: endPoint)
                 _liquidPath.om_addCurve(to: endPoint)
             }
+            _shadowPath?.addLine(to: _initialPoint)
+            _shadowPath?.addLine(to: _initialPoint + CGPoint(x: 0, y: templateNode.peak + templateNode.nadir))
+            _shadowPath?.addLine(to: _tlPoint + CGPoint(x: 0, y: templateNode.peak + templateNode.nadir))
+            _shadowPath?.close()
+            _shadowPath?.apply(CGAffineTransform(translationX: 0, y: shadowPathAdjust))
+
             _liquidPath.addLine(to: _initialPoint)
         }
         

@@ -12,6 +12,7 @@
 		1A3889051E1E745B006AFE77 /* WaveNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3889041E1E745B006AFE77 /* WaveNodeGenerator.swift */; };
 		1A3ADAB51E222C2900320452 /* UIBezierPath+OMExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3ADAB41E222C2900320452 /* UIBezierPath+OMExtension.swift */; };
 		1A9D71711E227C0F00219FA0 /* OptionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D71701E227C0F00219FA0 /* OptionsProtocol.swift */; };
+		1A9D717F1E236ABD00219FA0 /* CGPoint+OMExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D717E1E236ABD00219FA0 /* CGPoint+OMExtension.swift */; };
 		2D045807A21A1292DCF3B5C432FFD439 /* Pods-OMLiquidView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75309ECCFD357C7F89E126F7DF79EEDF /* Pods-OMLiquidView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BE6AFB40D902D5BF1675AD4B8EC923B /* Pods-OMLiquidView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE14ACB1CD510071159E95F6AE59B2 /* Pods-OMLiquidView_Tests-dummy.m */; };
 		6423547D8C1C8BC586F9137AC958DB0A /* OMLiquidView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DC6A7CF44B33A5F3ADA9BB289A5EE9D8 /* OMLiquidView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,6 +42,7 @@
 		1A3889041E1E745B006AFE77 /* WaveNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveNodeGenerator.swift; sourceTree = "<group>"; };
 		1A3ADAB41E222C2900320452 /* UIBezierPath+OMExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+OMExtension.swift"; sourceTree = "<group>"; };
 		1A9D71701E227C0F00219FA0 /* OptionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsProtocol.swift; sourceTree = "<group>"; };
+		1A9D717E1E236ABD00219FA0 /* CGPoint+OMExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+OMExtension.swift"; sourceTree = "<group>"; };
 		2476491420E98B277906CB7B0DA20ACA /* Pods-OMLiquidView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OMLiquidView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		4240C3C02891C38873B74D007A6CA5F5 /* OMLiquidView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OMLiquidView-prefix.pch"; sourceTree = "<group>"; };
 		56DCD748269AA216AF4D221FF8AEA0A1 /* Pods-OMLiquidView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OMLiquidView_Example-dummy.m"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				1A3889041E1E745B006AFE77 /* WaveNodeGenerator.swift */,
 				1A3ADAB41E222C2900320452 /* UIBezierPath+OMExtension.swift */,
 				1A9D71701E227C0F00219FA0 /* OptionsProtocol.swift */,
+				1A9D717E1E236ABD00219FA0 /* CGPoint+OMExtension.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			files = (
 				1A3889051E1E745B006AFE77 /* WaveNodeGenerator.swift in Sources */,
 				1A3ADAB51E222C2900320452 /* UIBezierPath+OMExtension.swift in Sources */,
+				1A9D717F1E236ABD00219FA0 /* CGPoint+OMExtension.swift in Sources */,
 				1A3889031E1E735E006AFE77 /* OMLiquidView.swift in Sources */,
 				E4F879BE5EBB24EB5DB883A6C0062AA8 /* OMLiquidView-dummy.m in Sources */,
 				1A9D71711E227C0F00219FA0 /* OptionsProtocol.swift in Sources */,

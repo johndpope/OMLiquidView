@@ -23,8 +23,10 @@ class ViewController: UIViewController {
         }))
         
         let liquidView1 = OMLiquidView(frame: refRect1, templateWaveNode: node1, appearance: .default(modify: { (_ config: inout OMLiquidView.Appearance) in
-            config.backLayer = .bgColor(color: .yellow)
-            config.shadow = .shadow(opacity: 0.3, radius: 10, offset: CGSize(width: 0, height:-5), color: UIColor.black.cgColor)
+            config.backLayer = .gradientBGColor(
+                colors: [UIColor.red.cgColor, UIColor.blue.cgColor],
+                locations: [0.0, 1.0], startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 1, y: 1), type: kCAGradientLayerAxial)
+            config.shadow = .shadow(opacity: 0.5, radius: 10, offset: CGSize(width: 0, height:-5), color: UIColor.black.cgColor)
         }))
 
         let refRect2 = CGRect(x: 0, y: refRect1.origin.y - 20, width: refRect1.width, height: refRect1.height + 20)

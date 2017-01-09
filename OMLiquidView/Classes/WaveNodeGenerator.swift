@@ -182,14 +182,14 @@ public class WaveNodeGenerator {
     private(set) var templateWaveNode: WaveNode
     private(set) var existingWaveNodes: [WaveNode] = []
     
-    fileprivate var maxNodeCount: Int
+    fileprivate var nodeThreshold: CGFloat
     fileprivate var nodeTimeInterval: TimeInterval
     fileprivate var _timer: Timer!
     fileprivate var _timerIsPaused: Bool = false
     
-    init(waveNode: WaveNode, maxCount: Int) {
+    init(waveNode: WaveNode, threshold: CGFloat) {
         self.templateWaveNode = waveNode
-        self.maxNodeCount = maxCount
+        self.nodeThreshold = threshold
         self.nodeTimeInterval = waveNode._horizontalTimeinterval
         NotificationCenter.default.addObserver(self, selector: #selector(WaveNodeGenerator.willResignActive(notification:)), name: .UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(WaveNodeGenerator.willEnterForeground(notification:)), name: .UIApplicationWillEnterForeground, object: nil)
@@ -226,12 +226,10 @@ public class WaveNodeGenerator {
     
     @objc public func next(timer: Timer) {
         guard !_timerIsPaused else { return }
-        
         existingWaveNodes.append(nextNode())
         existingWaveNodes = existingWaveNodes.filter { node in
-            return node.currentTranslation <= templateWaveNode.nodeSegment * CGFloat(maxNodeCount)
+            return node.currentTranslation <= nodeThreshold
         }
-        print(existingWaveNodes.count)
     }
     
     func updateNodesHorizontal() {
